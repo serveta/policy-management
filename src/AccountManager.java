@@ -16,18 +16,14 @@ public class AccountManager {
         accounts.add(new Individual(user1, insurances));
     }
 
-    public Accoount login(String email, String password) {
+    public Accoount login(String email, String password) throws InvalidAuthenticationException {
         prepareAccounts();
-        try {
-            for (Accoount accoount : accounts) {
-                if (accoount.getUser().getEmail().equals(email) && accoount.getUser().getPassword().equals(password)){
-                    accoount.setAuthenticationStatus(1);
-                    return accoount;
-                }
+        for (Accoount accoount : accounts) {
+            if (accoount.getUser().getEmail().equals(email) && accoount.getUser().getPassword().equals(password)) {
+                accoount.setAuthenticationStatus(1);
+                return accoount;
             }
-        } catch (Exception e) {
-            // Invalid Auth. Exception
         }
-        return null;
+        throw new InvalidAuthenticationException("Invalid Authentication Exception!");
     }
 }

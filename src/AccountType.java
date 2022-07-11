@@ -16,11 +16,18 @@ public enum AccountType {
     }
 
     public static String getAccountTypeName(int accountType) {
+        String accountTypeName;
         switch (accountType) {
-            case 0: return INDIVIDUAL.name();
-            case 1: return ENTERPRISE.name();
+            case 0:
+                accountTypeName = INDIVIDUAL.name();
+                break;
+            case 1:
+                accountTypeName = ENTERPRISE.name();
+                break;
+            default:
+                accountTypeName = "ERROR!";
         }
 
-        return "ERROR!";
+        return accountTypeName;
     }
 }

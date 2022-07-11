@@ -10,6 +10,7 @@ public abstract class Accoount implements Comparable<Accoount> {
         this.user = user;
         this.insurances = insurances;
         this.authenticationStatus = authenticationStatus;
+        this.accountType = accountType;
     }
 
     public User getUser() {

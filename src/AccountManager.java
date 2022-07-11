@@ -5,9 +5,9 @@ public class AccountManager {
     private TreeSet<Accoount> accounts;
 
     private void prepareAccounts() {
-        HomeAdress homeAdress1 = new HomeAdress("Türkiye", "İstanbul", "Beşiktaş");
-        BusinessAdress businessAdress1 = new BusinessAdress("Türkiye", "İstanbul", "Maslak");
-        User user1 = new User("Servet", "Arslan", "servet@example.com", "123", "developer", 22, homeAdress1, businessAdress1);
+        HomeAddress homeAddress1 = new HomeAddress("Türkiye", "İstanbul", "Beşiktaş");
+        BusinessAddress businessAddress1 = new BusinessAddress("Türkiye", "İstanbul", "Maslak");
+        User user1 = new User("Servet", "Arslan", "servet@example.com", "123", "developer", 22, homeAddress1, businessAddress1);
         ArrayList<Insurance> insurances = new ArrayList<>();
         insurances.add(new HealthInsurance("Health Insurance"));
         insurances.add(new ResidenceInsurance("Residence Insurance"));

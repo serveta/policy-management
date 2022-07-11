@@ -8,19 +8,19 @@ public class User {
     private String password;
     private String occupation;
     private int age;
-    private ArrayList<Adress> adressList;
+    private ArrayList<Address> addressList;
     private Date lastLoginDate;
 
-    public User(String firstName, String lastName, String email, String password, String occupation, int age, HomeAdress homeAdress, BusinessAdress businessAdress) {
+    public User(String firstName, String lastName, String email, String password, String occupation, int age, HomeAddress homeAddress, BusinessAddress businessAddress) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.occupation = occupation;
         this.age = age;
-        this.adressList = new ArrayList<>();
-        this.adressList.add(homeAdress);
-        this.adressList.add(businessAdress);
+        this.addressList = new ArrayList<>();
+        this.addressList.add(homeAddress);
+        this.addressList.add(businessAddress);
     }
 
     public String getFirstName() {
@@ -71,12 +71,12 @@ public class User {
         this.age = age;
     }
 
-    public ArrayList<Adress> getAdressList() {
-        return adressList;
+    public ArrayList<Address> getAddressList() {
+        return addressList;
     }
 
-    public void setAdressList(ArrayList<Adress> adressList) {
-        this.adressList = adressList;
+    public void setAddressList(ArrayList<Address> addressList) {
+        this.addressList = addressList;
     }
 
     public Date getLastLoginDate() {

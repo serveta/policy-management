@@ -35,6 +35,9 @@ public abstract class Accoount implements Comparable<Accoount> {
         System.out.println("Last name: " + getUser().getLastName());
         System.out.println("Email: " + getUser().getEmail());
         System.out.println("Occupation: " + getUser().getOccupation());
+        System.out.println("Age: " + getUser().getAge());
+        System.out.println("Home Address: " + getUser().getAddressList().get(0).getAddress());
+        System.out.println("Business Address: " + getUser().getAddressList().get(1).getAddress());
     }
 
     @Override

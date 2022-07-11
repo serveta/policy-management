@@ -32,10 +32,16 @@ public class Login {
     public void run(Accoount accoount) {
         System.out.println("Welcome, " + accoount.getUser().getFirstName());
         System.out.println("Account Type: " + AccountType.getAccountTypeName(accoount.getAccountType()));
+
         while (true) {
+            System.out.println("1- User Info");
             System.out.println("0- Exit");
-            if (input.nextInt() == 0) {
+            int menu = input.nextInt();
+
+            if (menu == 0) {
                 break;
+            } else if (menu == 1) {
+                accoount.showUserInfo();
             }
         }
     }

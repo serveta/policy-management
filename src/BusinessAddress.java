@@ -1,9 +1,9 @@
-public class HomeAdress implements Adress {
+public class BusinessAddress implements Address {
     private String country;
     private String city;
     private String district;
 
-    public HomeAdress(String country, String city, String district) {
+    public BusinessAddress(String country, String city, String district) {
         this.country = country;
         this.city = city;
         this.district = district;
@@ -34,12 +34,12 @@ public class HomeAdress implements Adress {
     }
 
     @Override
-    public String getAdress() {
-        return getCountry() + "-" + getCity() + "-" + getDistrict();
+    public String getAddress() {
+        return null;
     }
 
     @Override
-    public void setAdress() {
+    public void setAddress() {
 
     }
 }

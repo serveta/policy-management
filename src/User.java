@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -9,7 +10,7 @@ public class User {
     private String occupation;
     private int age;
     private ArrayList<Address> addressList;
-    private Date lastLoginDate;
+    private String lastLoginDate;
 
     public User(String firstName, String lastName, String email, String password, String occupation, int age, HomeAddress homeAddress, BusinessAddress businessAddress) {
         this.firstName = firstName;
@@ -21,6 +22,9 @@ public class User {
         this.addressList = new ArrayList<>();
         this.addressList.add(homeAddress);
         this.addressList.add(businessAddress);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        this.lastLoginDate = formatter.format(date);
     }
 
     public String getFirstName() {
@@ -79,11 +83,7 @@ public class User {
         this.addressList = addressList;
     }
 
-    public Date getLastLoginDate() {
+    public String getLastLoginDate() {
         return lastLoginDate;
-    }
-
-    public void setLastLoginDate(Date lastLoginDate) {
-        this.lastLoginDate = lastLoginDate;
     }
 }

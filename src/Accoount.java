@@ -29,15 +29,23 @@ public abstract class Accoount implements Comparable<Accoount> {
         this.authenticationStatus = authenticationStatus;
     }
 
+    public ArrayList<Insurance> getInsurances() {
+        return insurances;
+    }
+
     public void showUserInfo() {
         System.out.println(" * USER INFO");
-        System.out.println("First name: " + getUser().getFirstName());
-        System.out.println("Last name: " + getUser().getLastName());
-        System.out.println("Email: " + getUser().getEmail());
-        System.out.println("Occupation: " + getUser().getOccupation());
-        System.out.println("Age: " + getUser().getAge());
-        System.out.println("Home Address: " + getUser().getAddressList().get(0).getAddress());
-        System.out.println("Business Address: " + getUser().getAddressList().get(1).getAddress());
+        System.out.println("First name: " + "\t\t" + getUser().getFirstName() + "\n" +
+        "Last name: " + "\t\t\t" + getUser().getLastName() + "\n" +
+        "Email: " + "\t\t\t\t" + getUser().getEmail() + "\n" +
+        "Occupation: " + "\t\t" + getUser().getOccupation() + "\n" +
+        "Age: " + "\t\t\t\t" + getUser().getAge() + "\n" +
+        "Home Address: " + "\t\t" + getUser().getAddressList().get(0).getAddress() + "\n" +
+        "Business Address: " + "\t" + getUser().getAddressList().get(1).getAddress() + "\n" +
+        "Insurances: ");
+        for (Insurance insurance : getInsurances()) {
+            System.out.println(" \t\t*" + insurance.getName());
+        }
     }
 
     @Override

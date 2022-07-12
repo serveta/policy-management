@@ -24,7 +24,7 @@ public class Login {
             }
         }
 
-        if (accoount != null) { //&& accoount.getAuthenticationStatus() == AuthenticationStatus.SUCCESS.status) {
+        if (accoount != null) {
             run(accoount);
         }
     }
@@ -32,10 +32,16 @@ public class Login {
     public void run(Accoount accoount) {
         System.out.println("Welcome, " + accoount.getUser().getFirstName());
         System.out.println("Account Type: " + AccountType.getAccountTypeName(accoount.getAccountType()));
+        System.out.println("Last login: " + accoount.getUser().getLastLoginDate());
 
         while (true) {
             System.out.println("1- User Info");
+            System.out.println("2- Add new address");
+            System.out.println("3- Remove an address");
+            System.out.println("4- Add new insurance");
+            System.out.println("5- Remove an insurance");
             System.out.println("0- Exit");
+            System.out.print(" *Select: ");
             int menu = input.nextInt();
 
             if (menu == 0) {

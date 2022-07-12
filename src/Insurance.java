@@ -6,8 +6,8 @@ public abstract class Insurance {
     private Date startingDate;
     private Date expirationDate;
 
-    public Insurance(String name) {
-        this.name = name;
+    public Insurance() {
+        this.name = this.getClass().getName();
     }
     public String getName() {
         return name;
@@ -42,5 +42,5 @@ public abstract class Insurance {
     }
 
 
-    public abstract void calculate();
+    public abstract void calculate(Accoount accoount);
 }

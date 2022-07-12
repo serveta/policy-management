@@ -46,7 +46,9 @@ public abstract class Accoount implements Comparable<Accoount> {
         }
         System.out.println("Insurances: ");
         for (Insurance insurance : getInsurances()) {
+            insurance.calculate(this);
             System.out.println(" \t\t*" + insurance.getName());
+            System.out.println("\t\t\t\t*"+insurance.getPrice()+" TL \n\t\t\t\t"+insurance.getStartingDate()+"\n\t\t\t\t"+insurance.getExpirationDate());
         }
     }
 

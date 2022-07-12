@@ -9,11 +9,11 @@ public class AccountManager {
         BusinessAddress businessAddress1 = new BusinessAddress("Türkiye", "İstanbul", "Maslak");
         User user1 = new User("Servet", "Arslan", "servet@example.com", "123", "developer", 22, homeAddress1, businessAddress1);
         ArrayList<Insurance> insurances = new ArrayList<>();
-        insurances.add(new HealthInsurance("Health Insurance"));
-        insurances.add(new ResidenceInsurance("Residence Insurance"));
+        insurances.add(new HealthInsurance());
+        insurances.add(new ResidenceInsurance());
 
         accounts = new TreeSet<>();
-        accounts.add(new Individual(user1, insurances));
+        accounts.add(new Enterprise(user1, insurances));
     }
 
     public Accoount login(String email, String password) throws InvalidAuthenticationException {

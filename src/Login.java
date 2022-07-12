@@ -12,9 +12,9 @@ public class Login {
 
         while (!isAuthenticated) {
             System.out.print("Email: ");
-            email = "servet@example.com";//input.next();
+            email = input.next();
             System.out.print("Password: ");
-            password = "123";//input.next();
+            password = input.next();
 
             try {
                 accoount = accountManager.login(email, password);
@@ -54,6 +54,13 @@ public class Login {
             } else if (menu == 3) {
                 System.out.print(" *Address index: ");
                 accoount.getUser().removeAddress(input.nextInt());
+            } else if (menu == 4) {
+                addInsurance(accoount);
+            } else if (menu == 5) {
+                System.out.print(" *Insurance index: ");
+                removeInsurance(accoount, input.nextInt());
+            } else {
+                System.out.println(" *Your selection was out of bounds.");
             }
         }
     }
@@ -89,6 +96,67 @@ public class Login {
             user.addHomeAddress(country, city, district);
         } else {
             user.addBusinessAddress(country, city, district);
+        }
+    }
+
+    private void addInsurance(Accoount accoount) {
+        int insuranceType;
+
+        System.out.println(" *Add new insurance");
+        System.out.println("1- " + HealthInsurance.class.getName());
+        System.out.println("2- " + ResidenceInsurance.class.getName());
+        System.out.println("3- " + CarInsurance.class.getName());
+        System.out.println("4- " + TravelInsurance.class.getName());
+        System.out.print(" *Select: ");
+        insuranceType = input.nextInt();
+
+        switch (insuranceType) {
+            case 1:
+            if (!hasInsurance(HealthInsurance.class.getName(), accoount)){
+                System.out.println(" *You already have " + HealthInsurance.class.getName());
+            } else {
+                accoount.getInsurances().add(new HealthInsurance());
+            }
+            break;
+            case 2:
+                if (!hasInsurance(ResidenceInsurance.class.getName(), accoount)){
+                    System.out.println(" *You already have " + ResidenceInsurance.class.getName());
+                } else {
+                    accoount.getInsurances().add(new ResidenceInsurance());
+                }
+                break;
+            case 3:
+                if (!hasInsurance(CarInsurance.class.getName(), accoount)){
+                    System.out.println(" *You already have " + CarInsurance.class.getName());
+                } else {
+                    accoount.getInsurances().add(new CarInsurance());
+                }
+                break;
+            case 4:
+                if (!hasInsurance(TravelInsurance.class.getName(), accoount)){
+                    System.out.println(" *You already have " + TravelInsurance.class.getName());
+                } else {
+                    accoount.getInsurances().add(new TravelInsurance());
+                }
+                break;
+            default:
+                System.out.println(" *Your selection was out of bound!");
+        }
+    }
+
+    private boolean hasInsurance(String insuranceName, Accoount accoount) {
+        for (Insurance insurance : accoount.getInsurances()) {
+            if (insurance.getName().equals(insuranceName)){
+                return false;
+            }
+        }
+        return true;
+    }
+    private void removeInsurance(Accoount accoount, int index) {
+        try {
+            accoount.getInsurances().remove(index);
+        } catch (Exception e) {
+            System.out.println(e.getMessage().toString());
         }
     }
 }

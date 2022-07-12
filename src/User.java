@@ -86,4 +86,18 @@ public class User {
     public String getLastLoginDate() {
         return lastLoginDate;
     }
+
+    public void addBusinessAddress(String country, String city, String district) {
+        getAddressList().add(new BusinessAddress(country,city,district));
+    }
+    public void addHomeAddress(String country, String city, String district) {
+        getAddressList().add(new HomeAddress(country, city, district));
+    }
+    public void removeAddress(int index) {
+        try {
+            getAddressList().remove(index);
+        } catch (Exception e) {
+            System.out.println(e.getMessage().toString());
+        }
+    }
 }
